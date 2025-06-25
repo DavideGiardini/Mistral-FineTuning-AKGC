@@ -1,0 +1,36 @@
+*** KG_constructor ***
+Train and Validation datasets used for finetuning the LLM.
+Viewable at https://huggingface.co/datasets/Giardooo/KG_constructor
+Built in "1. Dataset Creation.ipynb"
+Used in "2. Mistral Finetuning.ipynb" for the first LLM finetuning
+
+*** KG_constructor_FS ***
+Train and Validation datasets used for finetuning the LLM with examples.
+Viewable at https://huggingface.co/datasets/Giardooo/KG_constructor_FS
+Built in "1. Dataset Creation.ipynb"
+Used in "2. Mistral Finetuning.ipynb" for the second LLM finetuning
+
+*** test.csv ***
+contains the 400 observations that were used for testing the performances of the LLM, coming from the original 4 databases.
+Built in "1. Dataset Creation.ipynb"
+Used in "3. Inference.ipynb" for creation of responses.json
+
+*** test_external_dbs.csv ***
+contains the 200 observations that were used for testing the performances of the LLM, coming from the 2 external databases.
+Built in "1. Dataset Creation.ipynb"
+Used in "3. Inference.ipynb" for creation of responses_external_dbs.json
+
+*** responses.json ***
+json file containing inferences of the 400 test observations coming from the original 4 databases that were also used for training.
+It is composed in this way:
+- text: contains the prompt and context from which the LLM has to extract the triples
+- triples: are the ground truth triples
+- NF_triples: triples extracted from the base LLM (Non Finetuned)
+- FS_triples: triples extracted from the base LLM with Few Shot prompting
+- FT_triples: triples extracted from the Fine Tuned LLM
+- FS_prompts: prompt used for the Few Shot prompting
+
+*** responses_external_dbs.json ***
+json file containing inferences of the 200 test observations coming from the 2 databases that were used only for test.
+It is composed in the same way as responses.json
++ FT_FS_triples: triples extracted from the Fine Tuned LLM with Few Shot prompting
